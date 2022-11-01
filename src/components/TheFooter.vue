@@ -3,23 +3,23 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="icons d-flex">
                 <a href="#">
-                    <i class="fa fa-brands fa-instagram px-3"></i>
-                    <div class="hover-bg"></div>
-                </a>
-                <a href="#">
                     <i class="fa fa-brands fa-linkedin px-3"></i>
-                    <div class="hover-bg"></div>
-                </a>
-                <a href="#">
-                    <i class="fa fa-brands fa-whatsapp px-3"></i>
                     <div class="hover-bg"></div>
                 </a>
                 <a href="#">
                     <i class="fa fa-brands fa-github px-3"></i>
                     <div class="hover-bg"></div>
                 </a>
+                <a href="#">
+                    <i class="fa fa-brands fa-unsplash px-3"></i>
+                    <div class="hover-bg"></div>
+                </a>
+                <a href="#">
+                    <i class="fa fa-brands fa-whatsapp px-3"></i>
+                    <div class="hover-bg"></div>
+                </a>
             </div>
-            <div class="copy text-end d-flex align-items-center">
+            <div class="copy text-end align-items-center d-none d-md-flex">
                 <div class="text">
                     <p>Love is the answer</p>
                     <p>&copy; <span>Fonzhousefonzie</span> 2022</p>
@@ -39,7 +39,7 @@ export default {
 <style scoped lang="scss">
 footer {
     background: linear-gradient(transparent, var(--black));
-    padding: 3rem 0rem 2rem;
+    padding: 1rem 0rem;
     color: whitesmoke;
     position: fixed;
     bottom: 0;
@@ -47,82 +47,117 @@ footer {
     left: 0;
     z-index: 10;
 
-    .icons {
-        font-size: 1.5rem;
+    .container {
 
-        a {
-            position: relative;
-            z-index: 10;
+        .icons {
+            font-size: 1.5rem;
+            padding-bottom: 0.5rem;
 
-            i {
+            a {
                 position: relative;
                 z-index: 10;
-            }
 
-            .hover-bg {
-                pointer-events: none;
-                position: absolute;
-                top: 10rem;
-                left: 0;
-                right: 0;
-                background: linear-gradient(135deg, var(--pink), var(--blue));
-                height: 7rem;
-                z-index: 9;
-                padding: 0.5rem 0;
-                border-radius: 0.5rem 0.5rem 0 0;
-                transition: 200ms ease-out;
-            }
+                i {
+                    position: relative;
+                    z-index: 10;
+                }
 
-            &:hover .hover-bg {
-                top: -0.5rem;
+                .hover-bg {
+                    pointer-events: none;
+                    position: absolute;
+                    top: 10rem;
+                    left: 0;
+                    right: 0;
+                    background: linear-gradient(135deg, var(--pink), var(--blue));
+                    height: 7rem;
+                    z-index: 9;
+                    padding: 0.5rem 0;
+                    border-radius: 0.5rem 0.5rem 0 0;
+                    transition: 200ms ease-out;
+                }
+
+                &:hover .hover-bg {
+                    top: -0.5rem;
+                }
             }
         }
-    }
 
-    .copy {
-        cursor: default;
-        &:hover i{
-            animation: beat 500ms linear;
-        }
+        .copy {
+            cursor: default;
 
-        .text{
-            padding-right: 0.5rem;
-            border-right: 1px solid var(--pastel-pink);
+            &:hover i {
+                animation: beat 500ms linear;
+            }
 
-        p {
-            margin: 0;
-            color: var(--pastel-pink);
-            font-size: 0.8rem;
+            .text {
+                padding-right: 0.5rem;
+                border-right: 1px solid var(--pastel-pink);
 
-            span {
+                p {
+                    margin: 0;
+                    color: var(--pastel-pink);
+                    font-size: 0.8rem;
+
+                    span {
+                        background: linear-gradient(135deg, var(--pink), var(--blue));
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                }
+            }
+
+            i {
+                font-size: 1.5rem;
+                padding-left: 0.5rem;
                 background: linear-gradient(135deg, var(--pink), var(--blue));
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
         }
-        }
+    }
+}
 
-        i {
-            font-size: 1.5rem;
-            padding-left: 0.5rem;
-            background: linear-gradient(135deg, var(--pink), var(--blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+@media screen and (max-width: 767px) {
+    footer {
+        padding: 0.5rem;
+
+        .container {
+            flex-direction: column;
+
+            .icons {
+                font-size: 2rem;
+                gap: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 327px) {
+    footer {
+        .container {
+            .icons {
+                gap: 0.2rem;
+            }
         }
     }
 }
 
 @keyframes beat {
-    from, to{
+
+    from,
+    to {
         transform: scale(100%);
     }
-    35%{
+
+    35% {
         transform: scale(120%);
     }
-    50%{
+
+    50% {
         transform: scale(100%);
     }
-    65%{
+
+    65% {
         transform: scale(120%);
     }
 }

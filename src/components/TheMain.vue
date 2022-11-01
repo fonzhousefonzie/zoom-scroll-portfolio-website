@@ -2,11 +2,11 @@
     <main :class="{ 'main-scrolled-once': scrollPx >= 300}">
         <div class="overlay">
             <AboutMe :class="{ 'whenScrolled': scrollPx >= 300}" />
-            <WebDev :class="{ 'beforeScroll': scrollPx < 300, 'whenScrolled': scrollPx >= 700}" />
+            <LastWorks :class="{ 'beforeScroll': scrollPx < 300, 'whenScrolled': scrollPx >= 700}" />
             <MySkills :class="{ 'beforeScroll': scrollPx < 700 , 'whenScrolled': scrollPx >= 1100}" />
             <WebDev :class="{ 'beforeScroll': scrollPx < 1100, 'whenScrolled': scrollPx >= 1500}" />
             <ContactsSection :class="{ 'beforeScroll': scrollPx < 1500 , 'whenScrolled': scrollPx >= 1900}" />
-            <TheCredits :class="{ 'beforeScroll': scrollPx < 1900 , 'whenScrolled': scrollPx >= 2300}" />
+            <TheCredits :class="{ 'beforeScroll': scrollPx < 1900 }" />
         </div>
     </main>
 </template>
@@ -17,12 +17,14 @@ import AboutMe from './AboutMe.vue';
 import MySkills from './MySkills.vue';
 import ContactsSection from './ContactsSection.vue';
 import TheCredits from './TheCredits.vue';
+import LastWorks from './LastWorks.vue';
 export default {
-    components: { WebDev, AboutMe, MySkills, ContactsSection, TheCredits },
+    components: { WebDev, AboutMe, MySkills, ContactsSection, TheCredits, LastWorks },
     data() {
         return {
             scrolled: false,
-            scrollPx: 0
+            scrollPx: 0,
+            zoomEffect: true,
         };
     },
     methods: {
@@ -61,22 +63,35 @@ main {
         left: 0;
         bottom: 0;
         z-index: -1;
-        div{
+
+        div {
             transition: 300ms ease;
-            }
+        }
+
+        .section-vfx {
+            max-height: 100%;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
         .whenScrolled {
             transform: scale(300%);
             opacity: 0;
             pointer-events: none;
         }
-        .beforeScroll{
+
+        .beforeScroll {
             transform: scale(0.1);
             opacity: 0;
         }
     }
 }
 
-.main-scrolled-once{
+.main-scrolled-once {
     background: url(../assets/img/victor-elvira-avalos-tb8G24Fw_ks-unsplash.jpg);
     background-size: 100% 100vh;
     background-position: center;

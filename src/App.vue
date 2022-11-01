@@ -178,6 +178,12 @@ img{
   }
 }
 
+@media screen and (max-width: 327px){
+  .section{
+    padding-top: 70px;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

@@ -6,7 +6,7 @@
                 <p class="logo-title">Fonzhousefonzie</p>
             </div>
             <p class="menu" @click="dropdownShow()" :class="{ 'active': dropdown }" tabindex="0" @focusout="clickOut()">
-                <i class="fa-solid fa-bars"></i> Menu
+                <i class="fa-solid fa-bars"></i><span> Menu</span>
             </p>
         </div>
         <div class="container dropdown">
@@ -140,6 +140,73 @@ header {
             opacity: 1;
             filter: blur(0rem);
             pointer-events: all;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        .container.header {
+            padding: 0.5rem 1rem;
+
+            .logo {
+                padding-left: 0.5rem;
+
+                img {
+                    max-height: 50px;
+                    aspect-ratio: 43/50;
+                }
+
+                .logo-title {
+                    font-size: 1.2rem;
+                }
+            }
+
+            .menu {
+                padding: 0.7rem 1.1rem;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .container.dropdown {
+            .dropdown-content {
+                right: 0;
+                left: 0;
+                padding: 0 2rem;
+
+                li {
+                    a {
+                        font-size: 1.2rem;
+                        background: linear-gradient(135deg, var(--dark) 10%, rgba(var(--pink-rgb), 0.8) 40%, var(--blue) 60%, var(--dark) 90%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 327px) {
+    header {
+        .container.header {
+
+            .logo {
+
+                img {
+                    max-height: 40px;
+                }
+
+                .logo-title {
+                    font-size: 1rem;
+                }
+            }
+
+            .menu {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
         }
     }
 }
